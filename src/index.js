@@ -1,4 +1,3 @@
-import _ from 'lodash';
 import '@fortawesome/fontawesome-free/css/all.css';
 import '@fortawesome/fontawesome-free/js/all.js';
 import './style.css';
@@ -36,15 +35,15 @@ toDoTasks.forEach((task) => {
   input.setAttribute('type', 'checkbox');
   input.setAttribute('name', `check${task.index}`);
   input.setAttribute('id', `check${task.index}`);
-  
+
   div.classList.add('text');
   div.innerHTML = task.description;
-  if(input.checked) {
+  if (input.checked) {
     div.classList.add('done');
   }
 
   button.classList.add('options');
-  button.innerHTML = '<i class="fa-solid fa-ellipsis-vertical"></i>'
+  button.innerHTML = '<i class="fa-solid fa-ellipsis-vertical"></i>';
 
   li.appendChild(input);
   li.appendChild(div);
@@ -52,7 +51,7 @@ toDoTasks.forEach((task) => {
 
   taskList.appendChild(li);
 
-  input.addEventListener('change', ()=> {
+  input.addEventListener('change', () => {
     div.classList.toggle('done');
-  })
+  });
 });

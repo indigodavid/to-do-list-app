@@ -80,10 +80,6 @@ input {
   gap: 1rem;
 }
 
-#new-task {
-  flex: 1;
-}
-
 #clear {
   width: 100%;
 }
@@ -113,6 +109,7 @@ input {
 }
 
 #new-task {
+  flex: 1;
   color: var(--color-primary);
   background-color: var(--color-negative);
   padding: 0.7rem;
