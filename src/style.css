@@ -1,7 +1,121 @@
-body {
-  background-color: bisque;
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+* {
+  box-sizing: border-box;
 }
 
-.hello {
-  color: red;
+:root {
+  --color-primary: #555;
+  --color-disabled: #9a9a9a;
+  --color-accent: #4d60d6;
+  --color-active: #2db32d;
+  --color-negative: #fff;
+  --font: 'Poppins', sans-serif;
+}
+
+body {
+  font-family: var(--font);
+  color: var(--color-primary);
+  background-color: var(--color-accent);
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+}
+
+h1 {
+  text-align: center;
+  color: var(--color-negative);
+}
+
+button,
+input {
+  background-color: transparent;
+  border: none;
+  font-size: 1rem;
+}
+
+.box {
+  width: 60%;
+  margin: 0 auto;
+  padding: 3rem;
+  background-color: var(--color-negative);
+  border-radius: 1rem;
+  box-shadow: 1rem 1rem 1rem var(--color-primary);
+}
+
+.task {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  width: 100%;
+  padding: 0.5rem;
+}
+
+.text {
+  flex: 1;
+}
+
+.done {
+  text-decoration: line-through;
+  color: var(--color-disabled);
+}
+
+.options {
+  justify-self: flex-end;
+}
+
+.head {
+  display: flex;
+}
+
+.head h2 {
+  flex: 1;
+}
+
+#new-wrapper {
+  width: 100%;
+  display: flex;
+  gap: 1rem;
+}
+
+#new-task {
+  flex: 1;
+}
+
+#clear {
+  width: 100%;
+}
+
+#add-task,
+#clear {
+  color: var(--color-negative);
+  background-color: var(--color-accent);
+  padding: 0.8rem;
+  border-radius: 0.4rem;
+}
+
+#add-task:hover,
+#clear:hover {
+  color: var(--color-accent);
+  background-color: var(--color-negative);
+  padding: 0.7rem;
+  border: 0.1rem solid var(--color-accent);
+}
+
+#add-task:active,
+#clear:active {
+  color: var(--color-negative);
+  background-color: var(--color-active);
+  padding: 0.7rem;
+  border: 0.1rem solid var(--color-active);
+}
+
+#new-task {
+  color: var(--color-primary);
+  background-color: var(--color-negative);
+  padding: 0.7rem;
+  border: 0.1rem solid var(--color-accent);
+  border-radius: 0.4rem;
 }
