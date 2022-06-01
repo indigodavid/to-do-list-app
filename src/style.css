@@ -82,6 +82,14 @@ input {
   background-color: var(--color-focus);
 }
 
+#alert {
+  display: none;
+  padding: 0.8rem;
+  border-radius: 0.4rem;
+  background-color: red;
+  color: var(--color-negative);
+}
+
 #new-wrapper {
   width: 100%;
   display: flex;

@@ -1,10 +1,11 @@
-import Task from "./task.js";
-import createLi from "./create-li.js";
-import getData from "./get-data.js";
+import Task from './task.js';
+import createLi from './create-li.js';
+import getData from './get-data.js';
 
 const input = document.getElementById('new-task');
 const button = document.getElementById('add-task');
 const toDoTasks = getData();
+const alert = document.getElementById('alert');
 
 const addTaskEvent = () => {
   button.addEventListener('click', () => {
@@ -15,7 +16,11 @@ const addTaskEvent = () => {
       localStorage.setItem('toDoData', JSON.stringify(toDoTasks));
       input.value = '';
     } else {
-      alert('Task field is empty! Please try again'); // Modify HTML to show custom alert
+      alert.innerHTML = 'Task field is empty! Please try again';
+      alert.style.display = 'block';
+      setTimeout(() => {
+        alert.style.display = 'none';
+      }, 3000);
     }
   });
 };

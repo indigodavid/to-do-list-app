@@ -1,5 +1,5 @@
-import editTask from './edit-task';
-import removeTask from './remove-task';
+import editTask from './edit-task.js';
+import removeTask from './remove-task.js';
 
 const taskList = document.getElementById('task-list');
 
@@ -14,7 +14,7 @@ const createLi = (task) => {
   // Set List element id and class
   li.setAttribute('id', `task${task.index}`);
   li.classList.add('task');
-  
+
   // Set checkbox attributes
   checkbox.checked = task.completed;
   checkbox.setAttribute('type', 'checkbox');
@@ -56,26 +56,26 @@ const createLi = (task) => {
     div.classList.toggle('done');
   });
 
-  div.addEventListener('click',() => {
+  div.addEventListener('click', () => {
     div.style.display = 'none';
     textInput.style.display = 'inherit';
-  })
+  });
 
   textInput.addEventListener('change', () => {
     div.innerHTML = textInput.value;
     editTask(task.index, textInput.value, checkbox.checked);
     div.style.display = 'inherit';
     textInput.style.display = 'none';
-  })
+  });
 
   textInput.addEventListener('focusout', () => {
     div.style.display = 'inherit';
     textInput.style.display = 'none';
-  })
+  });
 
   removeButton.addEventListener('click', () => {
     removeTask(task.index);
   });
-}
+};
 
 export default createLi;
