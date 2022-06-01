@@ -9,6 +9,7 @@
   --color-disabled: #9a9a9a;
   --color-accent: #4d60d6;
   --color-active: #2db32d;
+  --color-focus: rgb(152, 208, 152);
   --color-negative: #fff;
   --font: 'Poppins', sans-serif;
 }
@@ -72,6 +73,16 @@ input {
 
 .head h2 {
   flex: 1;
+}
+
+.edit {
+  display: none;
+  flex: 1;
+  background-color: var(--color-focus);
+}
+
+.edit:focus {
+  
 }
 
 #new-wrapper {
