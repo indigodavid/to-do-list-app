@@ -1,3 +1,4 @@
+import editTask from './edit-task';
 import removeTask from './remove-task';
 
 const taskList = document.getElementById('task-list');
@@ -62,7 +63,7 @@ const createLi = (task) => {
 
   textInput.addEventListener('change', () => {
     div.innerHTML = textInput.value;
-    
+    editTask(task.index, textInput.value, checkbox.checked);
     div.style.display = 'inherit';
     textInput.style.display = 'none';
   })

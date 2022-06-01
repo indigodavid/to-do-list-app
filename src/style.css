@@ -65,6 +65,7 @@ input {
 
 .options {
   justify-self: flex-end;
+  display: none;
 }
 
 .head {
@@ -79,10 +80,6 @@ input {
   display: none;
   flex: 1;
   background-color: var(--color-focus);
-}
-
-.edit:focus {
-  
 }
 
 #new-wrapper {
