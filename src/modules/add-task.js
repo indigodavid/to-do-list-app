@@ -10,7 +10,7 @@ const addTaskEvent = () => {
       const task = new Task(input.value, 3);
       createLi(task);
     } else {
-      alert('Task field is empty! Please try again');
+      alert('Task field is empty! Please try again'); // Modify HTML to show custom alert
     }
   });
 };

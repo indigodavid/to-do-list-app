@@ -4,6 +4,7 @@ import './style.css';
 import Task from './modules/task.js'
 import createLi from './modules/create-li';
 import addTaskEvent from './modules/add-task';
+import getData from './modules/get-data';
 
 const toDoTasks = [
     new Task('Do the dishes', 0),
@@ -11,6 +12,8 @@ const toDoTasks = [
     new Task('Complete the project', 2),
 ];
 
-toDoTasks.forEach((task) => createLi(task));
+localStorage.setItem('toDoData', JSON.stringify(toDoTasks));
+
+getData().forEach((task) => createLi(task));
 
 addTaskEvent();
