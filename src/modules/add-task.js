@@ -9,10 +9,11 @@ const toDoTasks = getData();
 const addTaskEvent = () => {
   button.addEventListener('click', () => {
     if (input.value) {
-      const task = new Task(input.value, toDoTasks.length);
+      const task = new Task(input.value, toDoTasks.length + 1);
       createLi(task);
       toDoTasks.push(task);
       localStorage.setItem('toDoData', JSON.stringify(toDoTasks));
+      input.value = '';
     } else {
       alert('Task field is empty! Please try again'); // Modify HTML to show custom alert
     }

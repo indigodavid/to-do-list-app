@@ -1,3 +1,5 @@
+import removeTask from './remove-task';
+
 const taskList = document.getElementById('task-list');
 
 const createLi = (task) => {
@@ -5,6 +7,7 @@ const createLi = (task) => {
   const checkbox = document.createElement('input');
   const div = document.createElement('div');
   const button = document.createElement('button');
+  const removeButton = document.createElement('button');
   const textInput = document.createElement('input');
 
   // Set List element id and class
@@ -31,13 +34,20 @@ const createLi = (task) => {
     div.classList.add('done');
   }
 
+  // Set options button class and content
   button.classList.add('options');
   button.innerHTML = '<i class="fa-solid fa-ellipsis-vertical"></i>';
 
+  // Set remove button class and content
+  removeButton.classList.add('remove');
+  removeButton.innerHTML = '<i class="fa-solid fa-trash-can"></i>';
+
+  // Append all elements to li in order
   li.appendChild(checkbox);
   li.appendChild(div);
   li.appendChild(textInput);
   li.appendChild(button);
+  li.appendChild(removeButton);
 
   taskList.appendChild(li);
 
@@ -52,7 +62,7 @@ const createLi = (task) => {
 
   textInput.addEventListener('change', () => {
     div.innerHTML = textInput.value;
-    // edit local storage
+    
     div.style.display = 'inherit';
     textInput.style.display = 'none';
   })
@@ -61,6 +71,10 @@ const createLi = (task) => {
     div.style.display = 'inherit';
     textInput.style.display = 'none';
   })
+
+  removeButton.addEventListener('click', () => {
+    removeTask(task.index);
+  });
 }
 
 export default createLi;
