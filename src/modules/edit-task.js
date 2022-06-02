@@ -1,8 +1,9 @@
 import getData from './get-data.js';
 
-const editTask = (index, description = '', completed = false) => {
+const editTask = (liId, description = '', completed = false) => {
   
   const toDoTasks = getData();
+  const index = Number(liId.substring(4));
   if (description) {
     toDoTasks[index - 1].description = description;
   }

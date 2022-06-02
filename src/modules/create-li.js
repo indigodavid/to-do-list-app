@@ -57,7 +57,7 @@ const createLi = (task) => {
 
   const toggleDiv = () => {
     div.classList.toggle('done');
-    editTask(task.index, '' , checkbox.checked);
+    editTask(li.id, '' , checkbox.checked);
   };
 
   const changeToInput = () => {
@@ -72,7 +72,7 @@ const createLi = (task) => {
 
   const editDiv = () => {
     div.innerHTML = textInput.value;
-    editTask(task.index, textInput.value, checkbox.checked);
+    editTask(li.id, textInput.value, checkbox.checked);
     changeToDiv();
   };
 
