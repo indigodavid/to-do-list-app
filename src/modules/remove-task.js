@@ -1,14 +1,8 @@
-import getData from './get-data.js';
+import updateIndexes from './update-indexes.js';
 
-const removeTask = (index) => {
-  const li = document.getElementById(`task${index}`);
-  let toDoTasks = getData();
-  toDoTasks = toDoTasks.filter((task) => task.index !== index);
-  toDoTasks.forEach((task, index) => {
-    task.index = index + 1;
-  });
-  localStorage.setItem('toDoData', JSON.stringify(toDoTasks));
-  li.remove();
+const removeTask = (target) => {
+  target.parentElement.remove();
+  updateIndexes();
 };
 
 export default removeTask;

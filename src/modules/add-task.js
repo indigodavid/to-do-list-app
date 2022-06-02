@@ -4,11 +4,11 @@ import getData from './get-data.js';
 
 const input = document.getElementById('new-task');
 const button = document.getElementById('add-task');
-const toDoTasks = getData();
 const alert = document.getElementById('alert');
 
 const addTaskEvent = () => {
   button.addEventListener('click', () => {
+    const toDoTasks = getData();
     if (input.value) {
       const task = new Task(input.value, toDoTasks.length + 1);
       createLi(task);
