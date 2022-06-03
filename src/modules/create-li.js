@@ -89,13 +89,12 @@ const createLi = (task) => {
 
   li.addEventListener('dragstart', (e) => {
     li.style.backgroundColor = '#fff';
-    //li.style.boxShadow = '2px 2px 2px #444';
-    
+    // li.style.boxShadow = '2px 2px 2px #444';
+
     localStorage.setItem('draggedItem', JSON.stringify(li.id));
 
     e.dataTransfer.effectAllowed = 'move';
     e.dataTransfer.setData('text/html', document.getElementById(li.id).innerHTML);
-
   });
 
   li.addEventListener('dragover', (e) => {
@@ -105,21 +104,21 @@ const createLi = (task) => {
 
   li.addEventListener('dragleave', () => {
     li.style.border = 'none';
-  })
+  });
 
   li.addEventListener('drop', (e) => {
     e.preventDefault();
     e.stopPropagation();
     li.style.border = 'none';
-    if(li.id !== JSON.parse(localStorage.getItem('draggedItem'))) {
+    if (li.id !== JSON.parse(localStorage.getItem('draggedItem'))) {
       const thisItem = document.getElementById(li.id);
       const movedItem = document.getElementById(JSON.parse(localStorage.getItem('draggedItem')));
-      const thisInnerHTML = thisItem.innerHTML
+      const thisInnerHTML = thisItem.innerHTML;
       thisItem.innerHTML = e.dataTransfer.getData('text/html');
       movedItem.innerHTML = thisInnerHTML;
       updateIndexes();
     }
-  })
+  });
 };
 
 export default createLi;
