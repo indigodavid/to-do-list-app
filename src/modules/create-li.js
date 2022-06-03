@@ -1,5 +1,6 @@
 import editTask from './edit-task.js';
 import removeTask from './remove-task.js';
+import completed from './completed.js';
 
 const taskList = document.getElementById('task-list');
 
@@ -17,6 +18,7 @@ const createLi = (task) => {
 
   // Set checkbox attributes
   checkbox.checked = task.completed;
+  checkbox.classList.add('check');
   checkbox.setAttribute('type', 'checkbox');
   checkbox.setAttribute('name', `check${task.index}`);
   checkbox.setAttribute('id', `check${task.index}`);
@@ -52,29 +54,36 @@ const createLi = (task) => {
 
   taskList.appendChild(li);
 
-  checkbox.addEventListener('change', () => {
-    div.classList.toggle('done');
-  });
+  // create functions for specific behaviors
 
-  div.addEventListener('click', () => {
+  const toggleDiv = () => {
+    div.classList.toggle('done');
+    completed(li.id, checkbox.checked);
+  };
+
+  const changeToInput = () => {
     div.style.display = 'none';
     textInput.style.display = 'inherit';
-  });
+  };
 
-  textInput.addEventListener('change', () => {
+  const changeToDiv = () => {
+    div.style.display = 'inherit';
+    textInput.style.display = 'none';
+  };
+
+  const editDiv = () => {
     div.innerHTML = textInput.value;
-    editTask(task.index, textInput.value, checkbox.checked);
-    div.style.display = 'inherit';
-    textInput.style.display = 'none';
-  });
+    editTask(li.id, textInput.value, checkbox.checked);
+    changeToDiv();
+  };
 
-  textInput.addEventListener('focusout', () => {
-    div.style.display = 'inherit';
-    textInput.style.display = 'none';
-  });
-
+  // addEventlisteners to elements
+  checkbox.addEventListener('change', toggleDiv);
+  div.addEventListener('click', changeToInput);
+  textInput.addEventListener('change', editDiv);
+  textInput.addEventListener('focusout', changeToDiv);
   removeButton.addEventListener('click', () => {
-    removeTask(task.index);
+    removeTask(removeButton);
   });
 };
 
