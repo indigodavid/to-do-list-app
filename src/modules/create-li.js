@@ -1,5 +1,6 @@
 import editTask from './edit-task.js';
 import removeTask from './remove-task.js';
+import updateIndexes from './update-indexes.js';
 
 const taskList = document.getElementById('task-list');
 
@@ -14,6 +15,7 @@ const createLi = (task) => {
   // Set List element id and class
   li.setAttribute('id', `task${task.index}`);
   li.classList.add('task');
+  li.setAttribute('draggable', 'true');
 
   // Set checkbox attributes
   checkbox.checked = task.completed;
@@ -48,8 +50,8 @@ const createLi = (task) => {
   li.appendChild(checkbox);
   li.appendChild(div);
   li.appendChild(textInput);
-  li.appendChild(button);
   li.appendChild(removeButton);
+  li.appendChild(button);
 
   taskList.appendChild(li);
 
@@ -57,7 +59,7 @@ const createLi = (task) => {
 
   const toggleDiv = () => {
     div.classList.toggle('done');
-    editTask(li.id, '' , checkbox.checked);
+    editTask(li.id, '', checkbox.checked);
   };
 
   const changeToInput = () => {
@@ -85,7 +87,39 @@ const createLi = (task) => {
     removeTask(removeButton);
   });
 
+  li.addEventListener('dragstart', (e) => {
+    li.style.backgroundColor = '#fff';
+    //li.style.boxShadow = '2px 2px 2px #444';
+    
+    localStorage.setItem('draggedItem', JSON.stringify(li.id));
 
+    e.dataTransfer.effectAllowed = 'move';
+    e.dataTransfer.setData('text/html', document.getElementById(li.id).innerHTML);
+
+  });
+
+  li.addEventListener('dragover', (e) => {
+    e.preventDefault();
+    li.style.border = '#000 solid 1px';
+  });
+
+  li.addEventListener('dragleave', () => {
+    li.style.border = 'none';
+  })
+
+  li.addEventListener('drop', (e) => {
+    e.preventDefault();
+    e.stopPropagation();
+    li.style.border = 'none';
+    if(li.id !== JSON.parse(localStorage.getItem('draggedItem'))) {
+      const thisItem = document.getElementById(li.id);
+      const movedItem = document.getElementById(JSON.parse(localStorage.getItem('draggedItem')));
+      const thisInnerHTML = thisItem.innerHTML
+      thisItem.innerHTML = e.dataTransfer.getData('text/html');
+      movedItem.innerHTML = thisInnerHTML;
+      updateIndexes();
+    }
+  })
 };
 
 export default createLi;
