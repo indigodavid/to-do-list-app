@@ -57,7 +57,7 @@ const createLi = (task) => {
 
   const toggleDiv = () => {
     div.classList.toggle('done');
-    editTask(li.id, '' , checkbox.checked);
+    editTask(li.id, '', checkbox.checked);
   };
 
   const changeToInput = () => {
@@ -84,8 +84,6 @@ const createLi = (task) => {
   removeButton.addEventListener('click', () => {
     removeTask(removeButton);
   });
-
-
 };
 
 export default createLi;
