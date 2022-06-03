@@ -1,5 +1,6 @@
 import editTask from './edit-task.js';
 import removeTask from './remove-task.js';
+import completed from './completed.js';
 
 const taskList = document.getElementById('task-list');
 
@@ -57,7 +58,7 @@ const createLi = (task) => {
 
   const toggleDiv = () => {
     div.classList.toggle('done');
-    editTask(li.id, '', checkbox.checked);
+    completed(li.id, checkbox.checked);
   };
 
   const changeToInput = () => {
