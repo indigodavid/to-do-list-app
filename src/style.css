@@ -65,7 +65,7 @@ input {
 
 .options {
   justify-self: flex-end;
-  display: none;
+  cursor: move;
 }
 
 .head {
