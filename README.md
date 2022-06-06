@@ -1,14 +1,18 @@
 ![](https://img.shields.io/badge/Microverse-blueviolet)
 
-# Webpack Project
+# Todo List App
 
-> In this project I built a simple yet powerful webpack boilerplate, which will be used as a starting point for other projects.
+> In this project I built an interactive Todo List Web App with Webpack, HTML, CSS, and JavaScript. This project contains a feature that allow your Todo List to be stored in the local storage to keep track of the tasks even after closing your browser
 
 ## Built With
 
-- Major languages
-- Frameworks
-- Technologies used
+- Webpack
+- JavaScript
+- HTML and CSS
+
+## Live Demo
+
+[Live link](https://indigodavid.github.io/to-do-list-app/dist)
 
 ## Getting Started
 
@@ -18,21 +22,11 @@ To get a local copy up and running follow these simple example steps.
 
 Modern web browser with Javascript enabled
 
-### Setup
-
 ### Install
 
 git clone https://github.com/indigodavid/webpack-first-project.git
 
-### Usage
-
-### Run tests
-
-### Deployment
-
-
-
-## Authors
+## Author
 
 👤 **David Vera**
 
