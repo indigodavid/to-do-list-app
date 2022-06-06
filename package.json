@@ -20,7 +20,7 @@
   "bugs": {
     "url": "https://github.com/indigodavid/webpack-first-project/issues"
   },
-  "homepage": "https://github.com/indigodavid/webpack-first-project",
+  "homepage": "https://indigodavid.github.io/to-do-list-app/",
   "devDependencies": {
     "babel-eslint": "^10.1.0",
     "css-loader": "^6.7.1",
