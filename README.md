@@ -12,7 +12,7 @@
 
 ## Live Demo
 
-[Live link](https://indigodavid.github.io/to-do-list-app/dist)
+[Live link](https://indigodavid.github.io/to-do-list-app/)
 
 ## Getting Started
 
