@@ -52,6 +52,9 @@ input {
   align-items: center;
   width: 100%;
   padding: 0.5rem;
+  background-color: var(--color-negative);
+  margin: 0.4rem 0;
+  border-radius: 0.2rem;
 }
 
 .text {
@@ -80,6 +83,11 @@ input {
   display: none;
   flex: 1;
   background-color: var(--color-focus);
+}
+
+.moving {
+  background-color: #eee;
+  box-shadow: 0 0 3px 3px #777 inset;
 }
 
 #alert {
