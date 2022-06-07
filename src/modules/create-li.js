@@ -74,6 +74,20 @@ const createLi = (task) => {
     changeToDiv();
   };
 
+  const getElementByPosition = (position) => {
+    const fixedElements = [...taskList.querySelectorAll('.task')].filter(task => !task.classList.contains('moving'));
+    const element = fixedElements.reduce((closest, newElement) => {
+      const box = newElement.getBoundingClientRect();
+      const offset = position - box.top - box.height / 2;
+      if (offset < 0 && offset > closest.offset) {
+        return {offset: offset, element: newElement};
+      } else {
+        return closest;
+      }
+    }, {offset: Number.NEGATIVE_INFINITY}).element;
+    return element;
+  };
+
   // addEventlisteners to elements
   checkbox.addEventListener('change', toggleDiv);
   div.addEventListener('click', changeToInput);
@@ -83,35 +97,28 @@ const createLi = (task) => {
     removeTask(removeButton);
   });
 
-  li.addEventListener('dragstart', (e) => {
-    li.style.backgroundColor = '#fff';
-    localStorage.setItem('draggedItem', JSON.stringify(li.id));
+  li.addEventListener('dragstart', () => {
+    li.classList.add('moving');
+  });
 
-    e.dataTransfer.effectAllowed = 'move';
-    e.dataTransfer.setData('text/html', document.getElementById(li.id).innerHTML);
+  taskList.addEventListener('dragover', e => {
+    e.preventDefault();
   });
 
   li.addEventListener('dragover', (e) => {
     e.preventDefault();
-    li.style.border = '#000 solid 1px';
-  });
-
-  li.addEventListener('dragleave', () => {
-    li.style.border = 'none';
-  });
-
-  li.addEventListener('drop', (e) => {
-    e.preventDefault();
-    e.stopPropagation();
-    li.style.border = 'none';
-    if (li.id !== JSON.parse(localStorage.getItem('draggedItem'))) {
-      const thisItem = document.getElementById(li.id);
-      const movedItem = document.getElementById(JSON.parse(localStorage.getItem('draggedItem')));
-      const thisInnerHTML = thisItem.innerHTML;
-      thisItem.innerHTML = e.dataTransfer.getData('text/html');
-      movedItem.innerHTML = thisInnerHTML;
-      updateIndexes();
+    const newLiPosition = getElementByPosition(e.clientY);
+    const movingElement = document.querySelector('.moving');
+    if (newLiPosition) {
+      taskList.insertBefore(movingElement, newLiPosition);
+    } else {
+      taskList.appendChild(movingElement);
     }
+  });
+
+  li.addEventListener('dragend', () => {
+    li.classList.remove('moving');
+    updateIndexes();
   });
 };
 
