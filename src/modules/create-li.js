@@ -75,16 +75,15 @@ const createLi = (task) => {
   };
 
   const getElementByPosition = (position) => {
-    const fixedElements = [...taskList.querySelectorAll('.task')].filter(task => !task.classList.contains('moving'));
-    const element = fixedElements.reduce((closest, newElement) => {
+    const fixedElements = [...taskList.querySelectorAll('.task')].filter((task) => !task.classList.contains('moving'));
+    const { element } = fixedElements.reduce((closest, newElement) => {
       const box = newElement.getBoundingClientRect();
       const offset = position - box.top - box.height / 2;
       if (offset < 0 && offset > closest.offset) {
-        return {offset: offset, element: newElement};
-      } else {
-        return closest;
+        return { offset, element: newElement };
       }
-    }, {offset: Number.NEGATIVE_INFINITY}).element;
+      return closest;
+    }, { offset: Number.NEGATIVE_INFINITY });
     return element;
   };
 
@@ -101,7 +100,7 @@ const createLi = (task) => {
     li.classList.add('moving');
   });
 
-  taskList.addEventListener('dragover', e => {
+  taskList.addEventListener('dragover', (e) => {
     e.preventDefault();
   });
 
