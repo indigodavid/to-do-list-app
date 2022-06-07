@@ -12,13 +12,13 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/indigodavid/webpack-first-project.git"
+    "url": "git+https://github.com/indigodavid/to-do-list.git"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/indigodavid/webpack-first-project/issues"
+    "url": "https://github.com/indigodavid/to-do-list/issues"
   },
   "homepage": "https://indigodavid.github.io/to-do-list-app/",
   "devDependencies": {
