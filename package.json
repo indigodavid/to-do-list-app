@@ -22,6 +22,7 @@
   },
   "homepage": "https://indigodavid.github.io/to-do-list-app/",
   "devDependencies": {
+    "@babel/plugin-transform-modules-commonjs": "^7.18.2",
     "babel-eslint": "^10.1.0",
     "css-loader": "^6.7.1",
     "eslint": "^7.32.0",
