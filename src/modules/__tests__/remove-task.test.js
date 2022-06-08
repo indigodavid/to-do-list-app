@@ -1,4 +1,5 @@
-const jsdom = require("jsdom");
+const jsdom = require('jsdom');
+
 const { JSDOM } = jsdom;
 const updateIndexes = jest.fn();
 
@@ -45,16 +46,15 @@ const removeTask = (target) => {
 
 const target = dom.window.document.getElementById('check2');
 
-//removeTask(target);
+// removeTask(target);
 
 describe('Remove Task tests', () => {
   test('Check if task2 exists', () => {
     expect(dom.window.document.getElementById('task2')).toBeTruthy();
-  })
+  });
 
   test('Check if task2 has been removed', () => {
     removeTask(target);
     expect(dom.window.document.getElementById('task2')).toBeFalsy();
-  })
-
+  });
 });

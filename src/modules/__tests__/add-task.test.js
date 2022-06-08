@@ -1,29 +1,31 @@
-//const addTask = require('../add-task.js');
+// const addTask = require('../add-task.js');
 
 import Task from '../task.js';
-const jsdom = require("jsdom");
+
+const jsdom = require('jsdom');
+
 const { JSDOM } = jsdom;
 // Storage Mock
 function storageMock() {
-  let storage = {};
+  const storage = {};
 
   return {
-    setItem: function(key, value) {
+    setItem(key, value) {
       storage[key] = value || '';
     },
-    getItem: function(key) {
+    getItem(key) {
       return key in storage ? storage[key] : null;
     },
-    removeItem: function(key) {
+    removeItem(key) {
       delete storage[key];
     },
     get length() {
       return Object.keys(storage).length;
     },
-    key: function(i) {
+    key(i) {
       const keys = Object.keys(storage);
       return keys[i] || null;
-    }
+    },
   };
 }
 
@@ -65,7 +67,7 @@ const dom = new JSDOM(`
 
 const taskList = dom.window.document.getElementById('task-list');
 
-const createLi = jest.fn( task => {
+const createLi = jest.fn((task) => {
   const li = dom.window.document.createElement('li');
   const checkbox = dom.window.document.createElement('input');
   const div = dom.window.document.createElement('div');
@@ -112,14 +114,13 @@ const createLi = jest.fn( task => {
   taskList.appendChild(li);
 });
 
-//jest.mocks('../__mocks__/create-li');
+// jest.mocks('../__mocks__/create-li');
 const input = dom.window.document.getElementById('new-task');
 const alert = dom.window.document.getElementById('alert');
 input.value = 'New task';
 const toDoTasks = [];
 
 const addTask = () => {
-  
   if (input.value) {
     const task = new Task(input.value, toDoTasks.length + 1);
     createLi(task);
@@ -139,20 +140,18 @@ addTask();
 
 describe('Add Task tests', () => {
   test('Check if input is empty after the adding the task', () => {
-    
     expect(input.value).toBe('');
-  })
+  });
 
   test('Check if new task has been added', () => {
     expect(toDoTasks.length).toBe(1);
-  })
+  });
 
   test('Check the content of the new task', () => {
     expect(toDoTasks[0].description).toBe('New task');
-  })
+  });
 
   test('Check that a new li has been added', () => {
     expect(dom.window.document.querySelector('.task')).toBeTruthy();
-  })
-
+  });
 });

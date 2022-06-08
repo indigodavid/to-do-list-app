@@ -29,4 +29,4 @@ const addTaskEvent = () => {
 
 export default addTaskEvent;
 
-export {addTask};
+export { addTask };
