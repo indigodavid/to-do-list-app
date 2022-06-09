@@ -38,9 +38,9 @@ input {
 }
 
 .box {
-  width: 60%;
+  width: 95%;
   margin: 0 auto;
-  padding: 3rem;
+  padding: 0.5rem;
   background-color: var(--color-negative);
   border-radius: 1rem;
   box-shadow: 1rem 1rem 1rem var(--color-primary);
@@ -48,7 +48,7 @@ input {
 
 .task {
   display: flex;
-  gap: 1rem;
+  gap: 0.5rem;
   align-items: center;
   width: 100%;
   padding: 0.5rem;
@@ -101,7 +101,7 @@ input {
 #new-wrapper {
   width: 100%;
   display: flex;
-  gap: 1rem;
+  gap: 0.5rem;
 }
 
 #clear {
@@ -139,4 +139,25 @@ input {
   padding: 0.7rem;
   border: 0.1rem solid var(--color-accent);
   border-radius: 0.4rem;
+}
+
+@media screen and (min-width: 768px) {
+  .box {
+    width: 60%;
+    padding: 3rem;
+  }
+
+  .task {
+    gap: 1rem;
+  }
+
+  #new-wrapper {
+    gap: 1rem;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .box {
+    width: 38rem;
+  }
 }
