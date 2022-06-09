@@ -23,4 +23,4 @@ function storageMock() {
 
 const localStorage = storageMock();
 
-export default localStorage;
+exports.localStorage = localStorage;
