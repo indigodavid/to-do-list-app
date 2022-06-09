@@ -26,13 +26,19 @@ Modern web browser with Javascript enabled
 
 git clone https://github.com/indigodavid/webpack-first-project.git
 
-## Author
+## Authors
 
 👤 **David Vera**
 
 - GitHub: [@indigodavid](https://github.com/indigodavid)
 - Twitter: [@indigo1987](https://twitter.com/indigo1987)
 - LinkedIn: [LinkedIn](https://linkedin.com/in/david-vera-castillo-001b5756/)
+
+👤 **Elson Otake**
+
+- GitHub: [@elsonotake](https://github.com/elsonotake)
+- Twitter: [@elsonotake](https://twitter.com/elsonotake)
+- LinkedIn: [Elson Otake](https://linkedin.com/in/elson-otake-0b5b9138)
 
 ## 🤝 Contributing
 
