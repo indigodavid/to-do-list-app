@@ -1,7 +1,6 @@
-
 import Task from '../task.js';
-import { localStorage } from "../__mocks__/localStorage.js";
-import document from "../__mocks__/domMock.js";
+import { localStorage } from '../__mocks__/localStorage.js';
+import document from '../__mocks__/domMock.js';
 
 const updateIndexes = () => {
   const allLis = document.querySelectorAll('.task');
@@ -58,5 +57,5 @@ describe('Edit task tests', () => {
     completed(li.id, checkbox.checked);
     const toDoTasks = getData();
     expect(toDoTasks[1].completed).toBeTruthy();
-  })
-})
+  });
+});

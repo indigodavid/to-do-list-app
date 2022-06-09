@@ -41,6 +41,6 @@ const dom = new JSDOM(`
 </html>
 `);
 
-const document = dom.window.document;
+const { document } = dom.window;
 
 module.exports = document;

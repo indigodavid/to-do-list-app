@@ -1,6 +1,6 @@
 import Task from '../task.js';
-import { localStorage } from "../__mocks__/localStorage.js";
-import document from "../__mocks__/domMock.js";
+import { localStorage } from '../__mocks__/localStorage.js';
+import document from '../__mocks__/domMock.js';
 
 const updateIndexes = () => {
   const allLis = document.querySelectorAll('.task');
@@ -52,8 +52,6 @@ const li = document.getElementById('task2');
 const div = li.querySelector('.text');
 const checkbox = document.getElementById('check2');
 
-
-
 describe('Edit task tests', () => {
   test('Check div current value', () => {
     expect(div.innerHTML).toBe('Walk dogs');
@@ -64,5 +62,5 @@ describe('Edit task tests', () => {
     div.innerHTML = textInput.value;
     editTask(li.id, textInput.value, checkbox.checked);
     expect(div.innerHTML).toBe('Task edited');
-  })
-})
+  });
+});

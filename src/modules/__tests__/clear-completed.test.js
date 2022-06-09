@@ -1,6 +1,6 @@
 import Task from '../task.js';
-import { localStorage } from "../__mocks__/localStorage.js";
-import document from "../__mocks__/domMock.js";
+import { localStorage } from '../__mocks__/localStorage.js';
+import document from '../__mocks__/domMock.js';
 
 const updateIndexes = () => {
   const allLis = document.querySelectorAll('.task');
@@ -50,7 +50,7 @@ const clearTasks = () => {
     const removeButton = task.querySelector('.remove');
     removeTask(removeButton);
   });
-}
+};
 
 updateIndexes();
 
@@ -69,12 +69,12 @@ describe('Clear completed tasks tests', () => {
     clearTasks();
     updateIndexes();
     expect(document.querySelectorAll('.task').length).toBe(3);
-  })
+  });
 
   test('Check updated order in local storage', () => {
     const toDoTasks = getData();
     toDoTasks.forEach((task, idx) => {
       expect(task.index).toBe(idx + 1);
-    })
-  })
-})
+    });
+  });
+});
