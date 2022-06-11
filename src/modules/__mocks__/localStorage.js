@@ -19,7 +19,7 @@ const storageMock = () => {
       return keys[i] || null;
     },
   };
-}
+};
 
 const localStorage = storageMock();
 
