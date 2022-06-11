@@ -1,4 +1,4 @@
-function storageMock() {
+const storageMock = () => {
   const storage = {};
 
   return {
