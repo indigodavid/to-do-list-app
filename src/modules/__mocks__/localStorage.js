@@ -1,4 +1,4 @@
-function storageMock() {
+const storageMock = () => {
   const storage = {};
 
   return {
@@ -19,7 +19,7 @@ function storageMock() {
       return keys[i] || null;
     },
   };
-}
+};
 
 const localStorage = storageMock();
 
