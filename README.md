@@ -32,7 +32,7 @@ git clone https://github.com/indigodavid/webpack-first-project.git
 
 - GitHub: [@indigodavid](https://github.com/indigodavid)
 - Twitter: [@indigo1987](https://twitter.com/indigo1987)
-- LinkedIn: [LinkedIn](https://linkedin.com/in/david-vera-castillo-001b5756/)
+- LinkedIn: [LinkedIn](https://www.linkedin.com/in/davidveracastillo/)
 
 👤 **Elson Otake**
 
